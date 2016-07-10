@@ -22,8 +22,8 @@ s.onload = function() {
 
 ## Features
 
-* The extension bootstraps language inference from StackOverflow's pretty print library (which itself simply trusts the tags added to the question). This way a question tagged with `python` will have `#` as its comment character, and a quesiton tagged with `C` will have `//` as the comment characters. It's not perfect, but it works decently. If you copy text from outside of a `code` block, there's no comment character.
-* If you copy text from a specific answer, the extension adds the fragment identifier to the URL so you can jump right back to where you found the code.
+* The extension bootstraps language inference from StackOverflow's pretty print library (which itself simply trusts the tags added to the question). This way a question tagged with python will have `#` as its comment character, and a quesiton tagged with C will have `//` as the comment character. It's not perfect, but it works decently. Feel free to submit a PR to add more languages. If you copy text from outside of a `code` block, there's no comment character.
+* If you copy text from an answer, the extension adds the fragment identifier for that answer to the URL so that you can jump right back to where you found the code.
 
 ## TODOs
 
