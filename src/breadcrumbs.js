@@ -1,27 +1,21 @@
-document.addEventListener('copy', function(e){
-e.clipboardData.setData('text/plain','// Copied from StackOverflow\n' + window.getSelection().toString());
-e.preventDefault();
-//     e.clipboardData.setData('text/plain', 'Hello, world!');
-//     e.clipboardData.setData('text/html', '<b>Hello, world!</b>');
-//     e.preventDefault(); // We want our data, not data from any selection, to be written to the clipboard
-});
-
-// inline comment list https://en.wikipedia.org/wiki/Comparison_of_programming_languages_(syntax)#Comments
-var lang_comments = {
-  "lang-c"   : "//",
-  "lang-cpp" : "//",
-  "lang-cs"  : "//",
-  "lang-js"  : "//",
-  "lang-tex" : "%",
-  "lang-pl"  : "#",
-  "lang-py"  : "#",
-  "lang-r"   : "#",
-  "lang-rb"  : "#",
-  "lang-sh"  : "#"
-
-};
+(function() {
 
 document.addEventListener('copy', function(e){
+  // inline comment list https://en.wikipedia.org/wiki/Comparison_of_programming_languages_(syntax)#Comments
+  var lang_comments = {
+    "lang-c"   : "//",
+    "lang-cpp" : "//",
+    "lang-cs"  : "//",
+    "lang-js"  : "//",
+    "lang-php" : "//",
+    "lang-tex" : "%",
+    "lang-pl"  : "#",
+    "lang-py"  : "#",
+    "lang-r"   : "#",
+    "lang-rb"  : "#",
+    "lang-sh"  : "#"
+
+  };
   var comment_char = '';
   var current_answer = '';
   
@@ -45,4 +39,6 @@ document.addEventListener('copy', function(e){
   e.preventDefault();
 });
 
+console.log("added event listener for breadcrumbs.");
 
+})();

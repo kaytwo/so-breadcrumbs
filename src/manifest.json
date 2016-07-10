@@ -1,0 +1,17 @@
+{
+  "name": "stackoverflow breadcrumbs",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "adds a link back to the thread where some code was copied from",
+  "homepage_url": "https://github.com/kaytwo/so-breadcrumbs",
+  "content_scripts": [{
+    "matches": [
+      "https://stackoverflow.com/*",
+      "http://stackoverflow.com/*",
+      "https://*.stackexchange.com/*",
+      "http://*.stackexchange.com/*"
+    ],
+    "js": ["inject.js"]
+  }],
+  "web_accessible_resources": ["breadcrumbs.js"]
+}
