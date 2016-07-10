@@ -22,14 +22,27 @@ var lang_comments = {
 };
 
 document.addEventListener('copy', function(e){
-  // grab the enclosing pre and bootstrap language inference from so's language choice
+  var comment_char = '';
+  var current_answer = '';
+  
+  // if selection is inside a <pre>, use so's language inference
   var containing_pre = window.getSelection().anchorNode.parentNode.closest("pre");
-  var classlist = containing_pre.className.split(/\s+/).filter(function (x) {return x.substring(0,5)=="lang-";});
-  for (cl in classlist) {
-    if (lang_comments[classlist[cl]]){
-      console.log("found language: " + classlist[cl]);
-    }
+  if (containing_pre){
+    var classlist = containing_pre.className.split(/\s+/).filter(function (x) {return x.substring(0,5)=="lang-";});
+    comment_char = lang_comments[classlist[0]] || '//';
+    comment_char = comment_char + " ";
   }
+  
+  // find which answer we're in so we can link directly to it
+  var current_answer_div = window.getSelection().anchorNode.parentNode.closest(".answer")
+  if (current_answer_div)
+    current_answer = current_answer_div.getAttribute("data-answerid");
+  if (current_answer){
+    current_answer = "#" + current_answer;
+  }
+
+  e.clipboardData.setData('text/plain',comment_char + "from: https://" + document.location.hostname + document.location.pathname + current_answer + "\n" + window.getSelection().toString());
+  e.preventDefault();
 });
 
 
